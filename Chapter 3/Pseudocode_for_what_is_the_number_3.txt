@@ -1,0 +1,15 @@
+gracz wybiera liczbę w przedziale 1,100
+
+ograniczam wybór rand do wartości a i b
+	gdzie a = 1, a b = 100
+komputer ma ją zgadnąć 
+	porównuję pierwszy wybór
+	gdy jest zbyt duża
+		b = guess
+		szuka random int w przedziale a,wybrana liczba
+		zapisuje jako a
+	gdy jest zbyt mała
+		a = guess
+		szuka random w przedziale wybrana liczba, b
+	
+flip - przełączać
