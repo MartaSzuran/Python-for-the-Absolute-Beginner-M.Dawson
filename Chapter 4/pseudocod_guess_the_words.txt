@@ -1,0 +1,16 @@
+komputer losuje slowo
+	tworze krotke z kilkoma slowami
+	uzywajac funkcji random.choice wybiera losowo slowo
+	podaje uzyktownikowi len(tego słowa)
+
+uzytkownik ma 5 szans na zdanie pytania
+	while zmienna pytania < 5
+		czy litera jest w slowie
+		komputer odpowiada tak lub nie
+
+pytanie do uzytkownika jakie to slowo 
+
+zakonczenie gry 
+
+nacisnij enter by wyjsc
+
