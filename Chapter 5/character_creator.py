@@ -1,7 +1,7 @@
 # program Kreator postaci
 
 # użytkkownik ma pule pkt ktore moze spozytkowac na cztery atrybuty
-
+# wykorzystanie słownika
 
 
 # przywitanie
