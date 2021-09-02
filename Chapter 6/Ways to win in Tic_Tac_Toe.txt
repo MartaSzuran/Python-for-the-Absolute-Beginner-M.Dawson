@@ -1,0 +1,23 @@
+1 | 2 | 3
+---------- 
+4 | 5 | 6
+---------- 
+7 | 8 | 9
+
+
+1. When comp starts:
+
+1. choose corner [1,9,7,5]
+2. if human choose 5
+	defense till tie
+   else if human choose any corner left
+	choose empty corner and win
+   else human choose [4,6,8,2]
+	choose 5
+
+2. When human starts: 
+   if human choose corner 
+	choose 5
+   else human choose 5	
+	defense
+	

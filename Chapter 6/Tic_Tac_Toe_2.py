@@ -53,7 +53,7 @@ def ask_yes_no(question):
         response = input(question).lower()
     return response
 
-# add step for challagne 1
+# add step for challenge 1
 def ask_number(question, low, high, step=1):
     """Ask for a number within a range."""
     response = None
@@ -147,8 +147,9 @@ def computer_move(board, computer, human):
     board = board[:]
     
     # the best positions to have, in order
-    BEST_MOVES = (4, 0, 2, 6, 8, 1, 3, 5, 7)
-    
+    BEST_MOVES_HUMAN_FIRST = (4, 0, 2, 6, 8, 1, 3, 5, 7)
+    BEST_MOVES_COMPUTER_FIRST = (0, 6, 8, 4, 1, 3, 5, 7)
+
     print("I shall take square number", end=" ")
 
     # if computer can win, take that move
@@ -170,10 +171,16 @@ def computer_move(board, computer, human):
         board[move] = EMPTY
 
     # since no one can win on next move, pick best open square
-    for move in BEST_MOVES:
-        if move in legal_moves(board):
-            print(move)
-            return move
+    if human == X:
+        for move in BEST_MOVES_HUMAN_FIRST:
+            if move in legal_moves(board):
+                print(move)
+                return move
+    else:
+        for move in BEST_MOVES_COMPUTER_FIRST:
+            if move in legal_moves(board):
+                print(move)
+                return move
 
 
 def next_turn(turn):
@@ -225,7 +232,6 @@ def main():
     congrat_winner(the_winner, computer, human)
 
 # start the program
-
 
 main()
 
