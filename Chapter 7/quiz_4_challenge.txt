@@ -1,0 +1,46 @@
+Episode about files and exception knowledge
+
+To create txt file you use:
+function open with "r" mode
+function pickle.dump()
+function open with "w" or "a" mode
+function open with "wb+" mode
+3
+For creating a txt file you can use modes: "w","w+","a","a+"
+15
+
+What kind of variables you can pass to txt file:
+Lists
+Tuples
+Dictionaries
+Strings
+4
+Format need to be string.
+20
+
+What kind of data you can store in file with .dat:
+Only numbers
+Only strings and lists
+Only tuples and dictionaries
+All above
+4
+You can create using pickle function file_name.dat with any kind of data.
+30
+
+After open a file in the program, what should you remember?
+to close that file after using its content
+to call your mother
+to create new variable with None content
+to finish your program using input("Press Enter to finish.")
+1
+You definitely should close the file !
+40
+
+After passing data to shelve you should check if all data are in file using what function:
+You don't have to check it, for sure everything was saved!
+s.close()
+shelve.open()
+s.sync()
+4
+Adding content using shelves require checking if all content was saved into file, /because python save file first to buffer then to  appropriate file.
+15
