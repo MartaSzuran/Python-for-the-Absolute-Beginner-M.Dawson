@@ -1,6 +1,5 @@
 # Pet caregiver
-# Virtual pet with back doors
-# which shows all class attributes
+# Virtual pet, user can choose amount of food
 
 class Critter(object):
     """Virtual pet"""
@@ -14,14 +13,6 @@ class Critter(object):
     def __pass_time(self):
         self.hunger += 1
         self.boredom += 1
-
-    def __str__(self):
-        obj_feature = "Object Critter\n"
-        obj_feature += "name: " + self.name + "\n"
-        obj_feature += "hunger: " + str(self.hunger) + "\n"
-        obj_feature += "boredom: " + str(self.boredom) + "\n"
-        obj_feature += "mood: " + self.mood + "\n"
-        return obj_feature
 
     @property
     def mood(self):
@@ -99,7 +90,8 @@ def main():
 
     choice = None
     while choice != "0":
-        print("""
+        print \
+            ("""
         Pet caregiver 2
         
         0 - end program
@@ -126,9 +118,6 @@ def main():
         # play with your pet
         elif choice == "3":
             crit.play()
-
-        elif choice == "4":
-            print(crit)
 
         # unknown choice
         else:
