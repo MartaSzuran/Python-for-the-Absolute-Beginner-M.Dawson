@@ -1,5 +1,5 @@
-# astrocrash 01
-# create moving asteroids
+# astrocrash 02
+# create moving ship
 
 from livewires import games
 import math, random

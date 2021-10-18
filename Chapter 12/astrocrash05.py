@@ -1,5 +1,5 @@
-# astrocrash 04
-# create missiles shooting control
+# astrocrash 05
+# create collisions
 
 from livewires import games
 import math, random
@@ -17,6 +17,8 @@ class Asteroid(games.Sprite):
               MEDIUM: games.load_image("asteroid_middle.bmp"),
               LARGE: games.load_image("asteroid_big.bmp")}
     SPEED = 2
+    # spawn is a number of asteroids which are created after asteroid collision
+    SPAWN = 2
 
     def __init__(self, x, y, size):
         super(Asteroid, self).__init__(
@@ -40,6 +42,17 @@ class Asteroid(games.Sprite):
 
         if self.right < 0:
             self.left = games.screen.width
+
+    def die(self):
+        """Destroy asteroid."""
+        # if it is not small asteroid replace it with two small once
+        if self.size != Asteroid.SMALL:
+            for i in range(Asteroid.SPAWN):
+                new_asteroid = Asteroid(x=self.x,
+                                        y=self.y,
+                                        size=self.size - 1)
+                games.screen.add(new_asteroid)
+        self.destroy()
 
 
 class Ship(games.Sprite):
@@ -92,8 +105,18 @@ class Ship(games.Sprite):
             self.missile_wait = Ship.MISSILE_DELAY
 
         # waiting till ship can shoot another missile
-        if self.missile_wait >0:
+        if self.missile_wait > 0:
             self.missile_wait -= 1
+
+        # check ships collisions
+        if self.overlapping_sprites:
+            for sprite in self.overlapping_sprites:
+                sprite.die()
+            self.die()
+
+    def die(self):
+        """Destroy ship."""
+        self.destroy()
 
 
 class Missile(games.Sprite):
@@ -150,6 +173,16 @@ class Missile(games.Sprite):
 
         if self.right < 0:
             self.left = games.screen.width
+
+        # check if missile is having collision with any other object
+        if self.overlapping_sprites:
+            for sprite in self.overlapping_sprites:
+                sprite.die()
+            self.die()
+
+    def die(self):
+        """Destroy missile."""
+        self.destroy()
 
 
 def main():
